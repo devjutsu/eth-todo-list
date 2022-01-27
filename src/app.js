@@ -17,9 +17,10 @@ App = {
             const chainId = await App.provider.request({
               method: 'eth_chainId'
             });
-            console.log(chainId);
+            console.log("Chain id:" + chainId);
 
-            await ethereum.enable();
+            const accounts = await ethereum.request({ method: 'eth_accounts' });
+            accounts.forEach(account => console.log(account));
 
           } else {
             console.error('Please install MetaMask!', error)
