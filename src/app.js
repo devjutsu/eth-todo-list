@@ -15,7 +15,7 @@ App = {
         App.provider = await detectEthereumProvider();
 
         if (App.provider) {
-            console.log('Ethereum OK!')
+            console.log('Ethereum OK!');
             const chainId = await App.provider.request({ method: 'eth_chainId' });
             console.log("Chain id:" + chainId);
         } else { console.error('Please install MetaMask!', error) }
@@ -28,29 +28,29 @@ App = {
     },
 
     loadContract: async () => {
-        const todoList = await $.getJSON('TodoList.json')
+        const todoList = await $.getJSON('TodoList.json');
         console.log("got contract: " + todoList.contractName);
-        var test = TruffleContract(todoList)
+        var test = TruffleContract(todoList);
         console.log(test);
-        App.contracts.TodoList = TruffleContract(todoList)
-        App.contracts.TodoList.setProvider(App.provider)
+        App.contracts.TodoList = TruffleContract(todoList);
+        App.contracts.TodoList.setProvider(App.provider);
 
         // Hydrate the smart contract with values from the blockchain
-        App.todoList = await App.contracts.TodoList.deployed()
+        App.todoList = await App.contracts.TodoList.deployed();
     },
 
     render: async () => {
         if (App.loading) {
-            return
+            return;
         }
 
-        App.setLoading(true)
+        App.setLoading(true);
 
-        $('#account').html(App.account)
+        $('#account').html(App.account);
 
-        await App.renderTasks()
+        await App.renderTasks();
 
-        App.setLoading(false)
+        App.setLoading(false);
     },
 
     renderTasks: async () => {
@@ -58,15 +58,15 @@ App = {
     },
     
     setLoading: (boolean) => {
-        App.loading = boolean
-        const loader = $('#loader')
-        const content = $('#content')
+        App.loading = boolean;
+        const loader = $('#loader');
+        const content = $('#content');
         if (boolean) {
-          loader.show()
-          content.hide()
+          loader.show();
+          content.hide();
         } else {
-          loader.hide()
-          content.show()
+          loader.hide();
+          content.show();
         }
       }
 }
