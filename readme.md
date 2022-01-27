@@ -6,6 +6,12 @@
 
 ***
 
+prepare
+```
+npm install -g truffle@5.0.2
+npm install web3
+```
+
 run
 ```
 truffle compile
@@ -18,3 +24,5 @@ list = await list.deployed()
 taskCount = await list.taskCount()
 taskCount.toNumber()
 ```
+
+`npm run dev`
