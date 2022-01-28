@@ -13,6 +13,7 @@ contract TodoList {
 
     constructor() public {
         createTask("Create first Etherium code sample");
+        createTask("Ensure state is written to blockchain");
     }
 
     function createTask(string memory _content) public {
