@@ -104,7 +104,7 @@ App = {
     },
 
     toggleCompleted: () => {
-        console.log("toggle");
+        //App.todoList.toggleCompleted()
     }
 }
 

@@ -29,6 +29,13 @@ contract('TodoList', (accounts) => {
         const task = await this.todoList.tasks(taskCount);
         assert.equal(task.content, 'Test task');
         assert.equal(task.completed, false);
-        console.log(result);
+        // console.log(result);
+    });
+
+    it('toggles completion', async() => {
+        const result = await this.todoList.toggleCompleted(1);
+        const task = await this.todoList.tasks(1);
+        assert.equal(task.id.toNumber(), 1);
+        assert.equal(task.completed, true);
     });
 });
