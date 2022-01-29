@@ -90,6 +90,14 @@ App = {
         window.location.reload();
     },
 
+    toggleCompleted: async(e) => {
+        App.setLoading(true);
+        const taskId = e.target.name;
+        console.log(taskId);
+        await App.todoList.toggleCompleted(taskId, { from: App.account });
+        window.location.reload();
+    },
+
     setLoading: (boolean) => {
         App.loading = boolean;
         const loader = $('#loader');
@@ -102,10 +110,6 @@ App = {
             content.show();
         }
     },
-
-    toggleCompleted: () => {
-        //App.todoList.toggleCompleted()
-    }
 }
 
 $(() => {

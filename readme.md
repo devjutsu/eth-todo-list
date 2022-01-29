@@ -16,6 +16,7 @@ run
 ```
 truffle compile
 truffle migrate
+truffle migrate --reset
 truffle console
 ```
 and then
